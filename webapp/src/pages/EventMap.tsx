@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Utensils, Smartphone, Users, Bath, Navigation, Plus, Minus, Disc as Stadium } from 'lucide-react';
+import { Search, Utensils, Smartphone, Users, Bath, Navigation, Plus, Minus, Music, Disc as Stadium } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const EventMap: React.FC = () => {
@@ -36,6 +36,21 @@ const EventMap: React.FC = () => {
           <div className="absolute -top-3 -right-3 flex items-center gap-2 bg-white rounded-full pl-2 pr-3 py-1 shadow-md">
             <div className="w-3 h-3 rounded-full bg-tertiary animate-pulse shadow-[0_0_8px_rgba(182,23,30,0.6)]"></div>
             <span className="text-xs font-bold text-tertiary font-body">Packed</span>
+          </div>
+        </div>
+
+        {/* Music Stage Zone */}
+        <div className="absolute top-[45%] right-[45%] w-80 h-56 bg-surface-container-lowest rounded-[2rem] shadow-[0px_12px_32px_rgba(25,28,29,0.06)] border border-white/50 flex flex-col items-center justify-center rotate-[-5deg]">
+          <div className="w-full h-24 bg-secondary/10 rounded-t-[2rem] flex items-center justify-center relative overflow-hidden">
+            <Music size={40} className="text-secondary opacity-50 absolute" />
+          </div>
+          <div className="p-4 text-center">
+            <h3 className="font-headline font-bold text-lg text-on-surface">Music Stage</h3>
+            <p className="text-sm text-on-surface-variant font-body">Live Concerts & DJ Sets</p>
+          </div>
+          <div className="absolute -top-3 -right-3 flex items-center gap-2 bg-white rounded-full pl-2 pr-3 py-1 shadow-md border border-surface-variant/20">
+            <div className="w-3 h-3 rounded-full bg-[#10b981] shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+            <span className="text-xs font-bold text-[#065f46] font-body">Ready</span>
           </div>
         </div>
 
