@@ -8,7 +8,7 @@ import Safety from './pages/Safety';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Prompt-War/">
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
