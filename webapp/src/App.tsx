@@ -8,13 +8,13 @@ import Safety from './pages/Safety';
 
 function App() {
   return (
-    <BrowserRouter basename="/Prompt-War/">
+    <BrowserRouter>   {/* ✅ FIXED */}
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="map" element={<EventMap />} />
           <Route path="schedule" element={<Schedule />} />
-          <Route path="leaderboard" element={ <Leaderboard />} />
+          <Route path="leaderboard" element={<Leaderboard />} />
           <Route path="safety" element={<Safety />} />
         </Route>
       </Routes>
