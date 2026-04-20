@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kinetic Concierge - Event Map</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#930010",
+                        "surface-dim": "#d9dadb",
+                        "secondary-fixed-dim": "#cfbdff",
+                        "tertiary-container": "#da3433",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-bright": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb3ac",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-container": "#7531ff",
+                        "on-tertiary-fixed": "#410003",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-fixed": "#001a41",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#f8f9fa",
+                        "surface-tint": "#005bc1",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-primary-container": "#fefcff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-container": "#eadfff",
+                        "tertiary": "#b6171e",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#414755",
+                        "inverse-primary": "#adc6ff",
+                        "on-secondary-fixed": "#22005d",
+                        "surface-container": "#edeeef",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5b00df",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#5300cd",
+                        "inverse-on-surface": "#f0f1f2",
+                        "outline": "#717786",
+                        "primary": "#0058bc",
+                        "outline-variant": "#c1c6d7",
+                        "tertiary-fixed": "#ffdad6",
+                        "secondary-fixed": "#e8ddff",
+                        "primary-container": "#0070eb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface/80 backdrop-blur-[24px] shadow-[0px_12px_32px_rgba(25,28,29,0.06)];
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .hide-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl shadow-sm bg-zinc-50 dark:bg-zinc-800 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<h1 class="text-2xl font-extrabold text-[#0058bc] dark:text-blue-500 tracking-tighter font-['Plus_Jakarta_Sans'] font-bold tracking-tight">Kinetic Concierge</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#0058bc] dark:text-blue-400 hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-[#0058bc] dark:text-blue-400 hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined">emergency_share</span>
+</button>
+<button class="text-[#0058bc] dark:text-blue-400 hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform p-2">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Attendee profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGqXbz03gc2msj9gMg4XW2w0P9IaSfGyY72tkxXWeDd2IVeybePfyuqzlpq7cSFxcTDWNNu6UtboWcF0_Ta2x_eH86hN278ndldJ0HVeywaykcxPcvSIEQDVxrqc-2i7IfAhasguFyoNe-cOsmMckTXXPRfyUHc74pQxv5KU2W6r2xtJpB76zH5zfncXvCFKALtf-jZHVfCx7-mid_sD8_4uzHsSA9zbDy8QNMSDMWkqs25TJES-2oH00uT1-Js6ysC9lcjTBqcRA"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden relative">
+<!-- SideNavBar (Desktop) -->
+<nav class="bg-[#f3f4f5] dark:bg-zinc-950 bg-zinc-100 dark:bg-zinc-900 h-screen w-64 hidden lg:flex flex-col py-8 pr-4 z-40 relative">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<img alt="User profile" class="w-12 h-12 rounded-full border-2 border-surface-container-highest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWr24HHXmgP-yDNIbC7IHIqnFVtFGT6aJEJUEVMK-ynb2wfN7X9xvlJfG6V7gLiKihoShSVJsMNb8M4hDZRuDL6X1gwB9anVIQdGxmhqTQhZj2htrTEEs2HB71Ph5x66NnjfO2hdezMuhlhJCBNA7TABsEt0hyRyFnY5iAktofvZciAp9ZgF2g9bb_BYjJr6dDqGuXO7XiCJbA_0ZK_k-zoSt4rrQZmaeV2kUFrRpvhVwKNjnYqUgRFzk6d4ocx_xMmjdMRdrmHWk"/>
+<div>
+<h2 class="font-['Inter'] text-sm font-medium text-on-surface">Welcome, Attendee</h2>
+<p class="text-xs text-primary font-medium">Premium Access</p>
+</div>
+</div>
+</div>
+<ul class="flex flex-col gap-2 flex-1">
+<!-- Dashboard (Inactive) -->
+<li>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                    </a>
+</li>
+<!-- Event Map (Active) -->
+<li>
+<a class="flex items-center gap-3 px-6 py-3 bg-white dark:bg-zinc-800 text-[#0058bc] dark:text-blue-400 rounded-r-full shadow-sm font-bold font-['Inter'] text-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+                        Event Map
+                    </a>
+</li>
+<!-- Schedule (Inactive) -->
+<li>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+                        Schedule
+                    </a>
+</li>
+<!-- Leaderboard (Inactive) -->
+<li>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+                        Leaderboard
+                    </a>
+</li>
+<!-- Safety & Feedback (Inactive) -->
+<li>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
+                        Safety &amp; Feedback
+                    </a>
+</li>
+</ul>
+<div class="px-6 mb-6">
+<button class="w-full py-3 rounded-lg bg-gradient-to-br from-primary to-primary-container text-white font-medium shadow-[0px_8px_16px_rgba(0,88,188,0.2)] hover:scale-[0.98] transition-transform">
+                    Live Highlights
+                </button>
+</div>
+<ul class="flex flex-col gap-2 mt-auto border-t border-surface-variant/50 pt-4">
+<li>
+<a class="flex items-center gap-3 px-6 py-2 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                        Settings
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-6 py-2 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">contact_support</span>
+                        Support
+                    </a>
+</li>
+</ul>
+</nav>
+<!-- Main Map Content Canvas -->
+<main class="flex-1 relative bg-surface-container-low overflow-hidden cursor-grab active:cursor-grabbing">
+<!-- Map Layer (Scalable/Pannable simulation) -->
+<div class="absolute inset-[-20%] w-[140%] h-[140%] transition-transform duration-500 ease-out transform translate-x-[-10%] translate-y-[-5%]">
+<!-- Abstract Map Graphic Pattern -->
+<div class="w-full h-full bg-surface-variant/30 relative" style="background-image: radial-gradient(var(--tw-colors-surface-container-highest) 1px, transparent 1px); background-size: 40px 40px;">
+<!-- Main Stage Zone -->
+<div class="absolute top-[20%] left-[30%] w-96 h-64 bg-surface-container-lowest rounded-[2rem] shadow-[0px_12px_32px_rgba(25,28,29,0.06)] border border-white/50 flex flex-col items-center justify-center">
+<div class="w-full h-32 bg-primary/10 rounded-t-[2rem] flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-primary opacity-50 absolute bottom-[-10px] scale-150">stadium</span>
+</div>
+<div class="p-4 text-center">
+<h3 class="font-headline font-bold text-lg text-on-surface">Main Stage</h3>
+<p class="text-sm text-on-surface-variant font-body">Keynotes &amp; Panels</p>
+</div>
+<!-- Live Crowd Indicator (Red - High) -->
+<div class="absolute -top-3 -right-3 flex items-center gap-2 bg-white rounded-full pl-2 pr-3 py-1 shadow-md">
+<div class="w-3 h-3 rounded-full bg-tertiary animate-pulse shadow-[0_0_8px_rgba(182,23,30,0.6)]"></div>
+<span class="text-xs font-bold text-tertiary font-body">Packed</span>
+</div>
+</div>
+<!-- Food Court Zone -->
+<div class="absolute bottom-[25%] left-[15%] w-72 h-72 bg-surface-container-lowest rounded-full shadow-[0px_12px_32px_rgba(25,28,29,0.06)] flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-secondary mb-2">restaurant</span>
+<h3 class="font-headline font-bold text-lg text-on-surface">Food Court</h3>
+<p class="text-sm text-on-surface-variant font-body mt-1">Stalls 1-10</p>
+<!-- Live Crowd Indicator (Yellow - Medium) -->
+<div class="absolute bottom-8 flex items-center gap-2 bg-white rounded-full pl-2 pr-3 py-1 shadow-md">
+<div class="w-3 h-3 rounded-full bg-[#f59e0b] shadow-[0_0_8px_rgba(245,158,11,0.6)]"></div>
+<span class="text-xs font-bold text-[#b45309] font-body">Busy</span>
+</div>
+</div>
+<!-- Tech Hub (Stalls 11-20) -->
+<div class="absolute top-[15%] right-[20%] w-[400px] h-[300px] bg-surface-container-lowest rounded-xl shadow-[0px_12px_32px_rgba(25,28,29,0.06)] grid grid-cols-4 grid-rows-3 gap-2 p-4 rotate-3">
+<div class="col-span-4 flex justify-between items-center pb-2 border-b border-surface-container-highest">
+<h3 class="font-headline font-bold text-lg text-on-surface">Tech Hub</h3>
+<span class="text-xs font-medium text-primary bg-primary-fixed/50 px-2 py-1 rounded-md">Stalls 11-20</span>
+</div>
+<!-- Mock Stalls -->
+<div class="bg-surface-container-low rounded-lg flex items-center justify-center relative"><span class="text-xs font-bold text-on-surface-variant">11</span></div>
+<div class="bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20 relative">
+<span class="text-xs font-bold text-primary">12</span>
+<!-- Live Crowd Indicator (Green - Low) -->
+<div class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#10b981] shadow-[0_0_6px_rgba(16,185,129,0.5)]"></div>
+</div>
+<div class="bg-surface-container-low rounded-lg flex items-center justify-center"><span class="text-xs font-bold text-on-surface-variant">13</span></div>
+<div class="bg-surface-container-low rounded-lg flex items-center justify-center"><span class="text-xs font-bold text-on-surface-variant">14</span></div>
+<div class="bg-surface-container-low rounded-lg flex items-center justify-center"><span class="text-xs font-bold text-on-surface-variant">15</span></div>
+<div class="bg-surface-container-low rounded-lg flex items-center justify-center"><span class="text-xs font-bold text-on-surface-variant">16</span></div>
+<div class="bg-secondary/10 rounded-lg flex items-center justify-center border border-secondary/20 relative">
+<span class="text-xs font-bold text-secondary">17</span>
+</div>
+<div class="bg-surface-container-low rounded-lg flex items-center justify-center"><span class="text-xs font-bold text-on-surface-variant">18</span></div>
+</div>
+<!-- Restrooms -->
+<div class="absolute bottom-[40%] right-[30%] w-24 h-24 bg-surface-container-highest rounded-2xl flex flex-col items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant">wc</span>
+<span class="text-[10px] font-bold text-on-surface-variant mt-1 uppercase tracking-wider">Restrooms</span>
+</div>
+<!-- User Location Pin -->
+<div class="absolute top-[45%] left-[45%] w-12 h-12 flex items-center justify-center">
+<div class="absolute inset-0 bg-primary/20 rounded-full animate-ping"></div>
+<div class="relative w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Foreground UI Overlays -->
+<!-- Sidebar / Search Overlay (Floating Top Left) -->
+<div class="absolute top-6 left-6 lg:left-8 w-80 max-w-[calc(100vw-3rem)] glass-panel rounded-[1.5rem] p-5 flex flex-col gap-4 z-10 transition-transform">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-highest text-on-surface font-body text-sm rounded-xl pl-12 pr-4 py-3 border-none focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all placeholder:text-on-surface-variant/70 shadow-inner outline-none" placeholder="Search stalls, zones, topics..." type="text"/>
+</div>
+<div>
+<h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-3 font-body">Quick Filters</h4>
+<div class="flex flex-wrap gap-2">
+<button class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium shadow-sm transition-transform active:scale-95 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">restaurant</span> Food
+                        </button>
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors active:scale-95 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">devices</span> Tech
+                        </button>
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors active:scale-95 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">groups</span> Workshop
+                        </button>
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors active:scale-95 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">wc</span> Restrooms
+                        </button>
+</div>
+</div>
+<!-- Crowd Legend -->
+<div class="mt-2 pt-4 border-t border-surface-variant/40 flex justify-between items-center">
+<span class="text-xs font-medium text-on-surface-variant">Crowd Levels:</span>
+<div class="flex gap-3">
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-[#10b981]"></div><span class="text-[10px] text-on-surface">Low</span></div>
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-[#f59e0b]"></div><span class="text-[10px] text-on-surface">Med</span></div>
+<div class="flex items-center gap-1"><div class="w-2 h-2 rounded-full bg-tertiary"></div><span class="text-[10px] text-on-surface">High</span></div>
+</div>
+</div>
+</div>
+<!-- Navigation Controls (Floating Bottom Right) -->
+<div class="absolute bottom-28 lg:bottom-8 right-6 flex flex-col gap-3 z-10">
+<button aria-label="Find My Location" class="w-12 h-12 bg-surface-container-lowest text-primary rounded-xl shadow-[0px_12px_32px_rgba(25,28,29,0.06)] flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</button>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_12px_32px_rgba(25,28,29,0.06)] flex flex-col overflow-hidden">
+<button aria-label="Zoom In" class="w-12 h-12 text-on-surface hover:bg-surface-container-low hover:text-primary transition-colors flex items-center justify-center border-b border-surface-variant/30 active:bg-surface-variant">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button aria-label="Zoom Out" class="w-12 h-12 text-on-surface hover:bg-surface-container-low hover:text-primary transition-colors flex items-center justify-center active:bg-surface-variant">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 lg:hidden rounded-t-[2rem] bg-white/90 dark:bg-zinc-900/90 backdrop-blur-2xl shadow-[0_-8px_24px_rgba(0,0,0,0.05)] shadow-2xl flex justify-around items-center px-4 pb-6 pt-3">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150 font-['Inter'] text-[10px] uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">home</span>
+            Home
+        </a>
+<!-- Map (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#0058bc] text-white rounded-2xl px-5 py-2 scale-110 -translate-y-2 transition-all font-['Inter'] text-[10px] uppercase tracking-widest font-bold shadow-lg shadow-primary/30" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+            Map
+        </a>
+<!-- Schedule (Inactive) -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150 font-['Inter'] text-[10px] uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">event_note</span>
+            Schedule
+        </a>
+<!-- Rank (Inactive) -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150 font-['Inter'] text-[10px] uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">military_tech</span>
+            Rank
+        </a>
+<!-- Safety (Inactive) -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150 font-['Inter'] text-[10px] uppercase tracking-widest font-bold" href="#">
+<span class="material-symbols-outlined mb-1 text-[24px]">emergency</span>
+            Safety
+        </a>
+</nav>
+</body></html>

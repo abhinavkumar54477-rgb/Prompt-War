@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kinetic Concierge - Dashboard</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#930010",
+                        "surface-dim": "#d9dadb",
+                        "secondary-fixed-dim": "#cfbdff",
+                        "tertiary-container": "#da3433",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-bright": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb3ac",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-container": "#7531ff",
+                        "on-tertiary-fixed": "#410003",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-fixed": "#001a41",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#f8f9fa",
+                        "surface-tint": "#005bc1",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-primary-container": "#fefcff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-container": "#eadfff",
+                        "tertiary": "#b6171e",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#414755",
+                        "inverse-primary": "#adc6ff",
+                        "on-secondary-fixed": "#22005d",
+                        "surface-container": "#edeeef",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5b00df",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#5300cd",
+                        "inverse-on-surface": "#f0f1f2",
+                        "outline": "#717786",
+                        "primary": "#0058bc",
+                        "outline-variant": "#c1c6d7",
+                        "tertiary-fixed": "#ffdad6",
+                        "secondary-fixed": "#e8ddff",
+                        "primary-container": "#0070eb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Hide scrollbar for horizontal scroller but keep functionality */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl no-border shadow-sm bg-zinc-50 dark:bg-zinc-800">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto shadow-[0px_12px_32px_rgba(25,28,29,0.06)]">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-extrabold text-[#0058bc] dark:text-blue-500 tracking-tighter font-['Plus_Jakarta_Sans'] tracking-tight">Kinetic Concierge</span>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search implicitly handled or hidden as per specific design needs, sticking to trailing icons -->
+<div class="flex items-center gap-4 text-[#0058bc] dark:text-blue-400">
+<button aria-label="notifications" class="hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="emergency_share" class="hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">emergency_share</span>
+</button>
+<button aria-label="qr_code_scanner" class="hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border-2 border-surface-container-lowest shadow-sm ml-2">
+<img alt="Attendee profile avatar" class="w-full h-full object-cover" data-alt="close up portrait of young professional woman smiling warmly against blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBryrZ9UgTksmRd_rVS4hHuBLK0BJ_r2lH8BWetoAX0W7oWZ0zPCKgrPrzzHAWhf5OtESomGPys8sfazIZFdfVTdOxTk-E936rd-eOtovVWktHyQv8Sq59r3OkFS-Pu0Bhtxkx8QjBe3HWNalJaSBdi9MUnKN8eYbujxoi8u9Xme8C4UaM4Ba3JJoIvPOP540p7GPD718Wum3WVZjRTgK6Pu3pXE_AHQ8hTcHyQnZTVeM_TOfMvXkmO1rPiqkL_Bzsl3WDmRcaC4fI"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex max-w-screen-2xl mx-auto">
+<!-- SideNavBar (Desktop) -->
+<nav class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col bg-[#f3f4f5] dark:bg-zinc-950 tonal-recession bg-zinc-100 dark:bg-zinc-900 flat no-shadows pt-24 z-40 border-r border-surface-container-high/50">
+<div class="flex flex-col gap-2 py-8 pr-4 w-full flex-grow">
+<div class="px-6 mb-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden shadow-sm">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="close up portrait of young professional woman smiling warmly against blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF0S2JaHbi_LazuUePK4e1R6FYDlxSp-q7DF0PUR_iPsNyfA3HZQFhyFPDreb7QtPDjNVKTDLi6CBVJhRCYO3Atvh_2jmDHfygsqPxi4GSiGE_hT1ZeOB12KbAiFzrS73RPumX4BrHzx0K-QGgGzZADN_CwRooCX4RWHV_UY7R5R9lq9brJb526xMoyAtm3Cz7OJNpvv2NjJ_lYsDlJ0uK88zzgfbab442g6aDyN32-q1ldTRsjmdDKsmQwqiFr876AlXaI_qzAhE"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-sm text-on-surface">Welcome, Attendee</h3>
+<p class="font-body text-xs text-primary font-medium">Premium Access</p>
+</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full py-3 px-4 bg-gradient-to-r from-secondary to-secondary-container text-white rounded-lg font-headline font-bold text-sm shadow-[0px_8px_16px_rgba(91,0,223,0.2)] hover:shadow-[0px_12px_24px_rgba(91,0,223,0.3)] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined icon-fill text-sm">play_circle</span>
+                        Live Highlights
+                    </button>
+</div>
+<!-- Active Tab: Dashboard -->
+<a class="flex items-center gap-3 px-6 py-3 bg-white dark:bg-zinc-800 text-[#0058bc] dark:text-blue-400 rounded-r-full shadow-sm font-bold font-['Inter'] text-sm hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined icon-fill">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">map</span>
+<span>Event Map</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span>Leaderboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
+<span>Safety &amp; Feedback</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-2 py-8 pr-4">
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span>Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 w-full lg:ml-64 p-4 lg:p-8 pb-32 lg:pb-12 space-y-12">
+<!-- Hero / Quick Actions -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- QR Code Card -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-[2rem] p-8 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-fixed-dim rounded-full blur-3xl opacity-30 pointer-events-none"></div>
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-surface-container-low shrink-0">
+<!-- Placeholder for actual QR -->
+<div class="w-48 h-48 bg-surface-variant rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-outline-variant">qr_code_2</span>
+</div>
+</div>
+<div class="flex flex-col gap-4 text-center md:text-left z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-fixed rounded-full text-on-primary-fixed text-xs font-bold uppercase tracking-wider w-fit self-center md:self-start">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                            Checked In
+                        </div>
+<h1 class="font-headline text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-on-surface">Your Digital Pass</h1>
+<p class="font-body text-on-surface-variant max-w-md">Scan this code at session entrances, vendor booths, and networking events to instantly connect and collect points.</p>
+<div class="mt-2 flex items-center gap-4 justify-center md:justify-start">
+<button class="text-primary font-bold hover:text-primary-container transition-colors flex items-center gap-1">
+                                Add to Wallet <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Action Cards -->
+<div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-6">
+<!-- Map Action -->
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-container text-white rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(0,88,188,0.2)] flex flex-col justify-between hover:scale-[1.02] transition-transform text-left relative overflow-hidden group">
+<div class="absolute right-0 top-0 opacity-10 transform translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-9xl icon-fill">explore</span>
+</div>
+<div class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mb-6 backdrop-blur-sm z-10">
+<span class="material-symbols-outlined text-white icon-fill text-2xl">map</span>
+</div>
+<div class="z-10">
+<h3 class="font-headline text-xl font-bold mb-1">Venue Map</h3>
+<p class="text-white/80 text-sm font-medium">Find stages, booths &amp; amenities</p>
+</div>
+</button>
+<!-- Safety Action -->
+<button class="flex-1 bg-tertiary-container text-on-tertiary-container rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(218,52,51,0.2)] flex flex-col justify-between hover:scale-[1.02] transition-transform text-left relative overflow-hidden group">
+<div class="absolute right-0 top-0 opacity-10 transform translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-9xl icon-fill">health_and_safety</span>
+</div>
+<div class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mb-6 backdrop-blur-sm z-10 text-white">
+<span class="material-symbols-outlined icon-fill text-2xl">emergency</span>
+</div>
+<div class="z-10">
+<h3 class="font-headline text-xl font-bold mb-1 text-white">Safety &amp; Help</h3>
+<p class="text-white/80 text-sm font-medium">Report issues or find medics</p>
+</div>
+</button>
+</div>
+</section>
+<!-- Today's Schedule Scroller -->
+<section>
+<div class="flex items-end justify-between mb-6">
+<h2 class="font-headline text-2xl md:text-3xl font-bold tracking-tight text-on-surface">Up Next</h2>
+<a class="text-primary font-semibold text-sm hover:underline" href="#">View Full Schedule</a>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-6 pb-8 snap-x snap-mandatory">
+<!-- Schedule Card 1 (Active/Soon) -->
+<div class="snap-start shrink-0 w-[300px] md:w-[360px] bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] border-t-4 border-primary relative overflow-hidden flex flex-col">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-xs font-bold rounded-full uppercase tracking-wider">Starting Soon</span>
+<span class="text-on-surface-variant text-sm font-medium">10:00 AM - 11:30 AM</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2 leading-tight">Keynote: The Future of Kinetic Interactions</h3>
+<p class="font-body text-on-surface-variant text-sm mb-6 line-clamp-2">Join industry leaders as they discuss the upcoming trends in physical-digital hybrid spaces.</p>
+<div class="mt-auto flex items-center justify-between border-t border-surface-container-low pt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+<span class="text-sm font-medium text-on-surface">Main Stage A</span>
+</div>
+<div class="flex -space-x-2">
+<img alt="Speaker" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="professional headshot of man in suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFJXjMP6ViAcvwhbO-xx5KRjzLWzpmjk9bgeMcn9zTP9tqnfpGeWEeY9YAIEeDAKmmXN2sBbMGFa08pBRjlrH39dDbFhhqD9xC8KHxwVJNKFOqcdGDcrJzQxmsW9Z-V0Vm7f9iFuh12liL4bn5TNBMt0-QVTS242oxuXH4WMzFIiA1H59Op5aWLOfSKbk9w58Rp-kV_c9--1JibNPDlMdH7qJvu2VDqUu1rT9YYtzETb1xJ39AQo1agqPDDa9h-Bn6Zn0FzS6LvDw"/>
+<img alt="Speaker" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="professional headshot of mature woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvMztizNeVa0F_tCiZ2wA703P3dAXOLV6sCpGW0SeMxm0Jj8UjdMRTw168PVuchOS0ezY4V0vNE6E_CKkZ_grjChS6z5QRt47Ht1zSeNitHLcc6NgpgWq0i2SkNwXGFldYFgcqcgwrgQdbaUG9DqlZHB2H1AHhWrMIJvLv7jIazqBOwtqT9zEM-5k3Bq0oRVG-U3LQ_fnH_TGZVy6JVJSHjLcCTJ9EBAPcPGvKb1m9HqoFJqEs1cnzmrF10fGUwM4vFaSXhN4otXM"/>
+</div>
+</div>
+</div>
+<!-- Schedule Card 2 -->
+<div class="snap-start shrink-0 w-[300px] md:w-[360px] bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] border-t-4 border-secondary relative overflow-hidden flex flex-col">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed text-xs font-bold rounded-full uppercase tracking-wider">Workshop</span>
+<span class="text-on-surface-variant text-sm font-medium">12:00 PM - 1:30 PM</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2 leading-tight">Building Accessible Event Spaces</h3>
+<p class="font-body text-on-surface-variant text-sm mb-6 line-clamp-2">A hands-on workshop focused on inclusive design principles for large-scale gatherings.</p>
+<div class="mt-auto flex items-center justify-between border-t border-surface-container-low pt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+<span class="text-sm font-medium text-on-surface">Room 204</span>
+</div>
+<button class="text-secondary font-bold text-sm hover:underline">Add to Plan</button>
+</div>
+</div>
+<!-- Schedule Card 3 -->
+<div class="snap-start shrink-0 w-[300px] md:w-[360px] bg-surface-container-lowest rounded-[2rem] p-6 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] border-t-4 border-surface-variant relative overflow-hidden flex flex-col">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface text-xs font-bold rounded-full uppercase tracking-wider">Networking</span>
+<span class="text-on-surface-variant text-sm font-medium">2:00 PM - 3:00 PM</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2 leading-tight">Coffee &amp; Connections</h3>
+<p class="font-body text-on-surface-variant text-sm mb-6 line-clamp-2">Grab a coffee and meet fellow attendees in the main atrium. Sponsored by TechCorp.</p>
+<div class="mt-auto flex items-center justify-between border-t border-surface-container-low pt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm">location_on</span>
+<span class="text-sm font-medium text-on-surface">Main Atrium</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Highlights (Newsfeed/Bento) -->
+<section>
+<h2 class="font-headline text-2xl md:text-3xl font-bold tracking-tight text-on-surface mb-6">Live Highlights</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Highlight 1: Large Image Card -->
+<div class="md:col-span-2 lg:col-span-2 bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-[0px_12px_32px_rgba(25,28,29,0.06)] relative group cursor-pointer h-80">
+<img alt="Crowd at keynote event" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="large crowd in dark auditorium watching bright stage with blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0vK3HI7YJ6Vra2P2mYBBUeDJyDvmBBuSniFV6XWXVuVZuHj2XH-m83449vbSJHldZydWOEXTqALSFD8Pe9oZCeJtcFxs-Wg-6vNTNyHUxTG7QnQWqDioLirYhdKMRxhGFtErx0GCEcB0eHI1ofTUets3edvB_5bluDWlS4QnCm4ziGXFWGIn3cou_A5ltNsQFIEt-p2-37AXlpzZ2HHpRtjbpGLgH1phnKBnsH6A6GVuZ86vtI4HQI51LSiajHgVB4vTDdDAB3HE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-8">
+<span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 w-fit">Trending Now</span>
+<h3 class="font-headline text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">CEO Announce Revolutionary AI Assistant</h3>
+<p class="text-white/80 font-medium">Watch the replay of the opening keynote that has everyone talking.</p>
+</div>
+</div>
+<!-- Highlight 2: Gamification/Social -->
+<div class="bg-secondary-fixed rounded-[2rem] p-8 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] flex flex-col justify-center relative overflow-hidden group">
+<div class="absolute right-0 bottom-0 opacity-10 transform translate-x-4 translate-y-4">
+<span class="material-symbols-outlined text-9xl icon-fill text-secondary">military_tech</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-secondary-fixed mb-2">Leaderboard Update</h3>
+<p class="text-on-secondary-fixed-variant mb-6 text-sm font-medium">You are currently in top 10% of networkers! Visit 3 more booths to unlock the 'Connector' badge.</p>
+<button class="bg-secondary text-white py-3 px-6 rounded-xl font-bold shadow-sm hover:bg-secondary-container transition-colors w-fit">
+                            View Rankings
+                        </button>
+</div>
+<!-- Highlight 3: Standard Card -->
+<div class="bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-[0px_12px_32px_rgba(25,28,29,0.06)] group cursor-pointer flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img alt="Networking area" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="modern brightly lit networking lounge area with people chatting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD8bqY2GEM84MHJKXzk_kgn_P9mx8siOs1YkdWVjescUqNaCbTqthuCJnH7Nq2QHHHVlIJejmV-jOe5Sf7BxEzHuHhvhJCeYbim7zRGQoX7kNYNigX7WQt5dhWsHQxI8CmicUOuGh9hsCm_B8OgeZAQ4uRYXvwgdnPvEkStA26XmSe33DKdiu7CjBoFcG7kWOu_Fd26JNO3S-urj084QrrUE31dd-vKnc5X9x8-HwGeGyZN5ps5-viutQyvVUKmo3ODH2NEx8jSEA"/>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<span class="text-primary text-xs font-bold uppercase tracking-wider mb-2">Sponsor Alert</span>
+<h3 class="font-headline text-lg font-bold text-on-surface mb-2">Visit the Innovation Hub</h3>
+<p class="font-body text-on-surface-variant text-sm mb-4 line-clamp-2">Free espresso and hands-on demos with the latest spatial computing headsets.</p>
+<span class="text-primary font-semibold text-sm mt-auto">Read More →</span>
+</div>
+</div>
+<!-- Highlight 4: Standard Card -->
+<div class="bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-[0px_12px_32px_rgba(25,28,29,0.06)] group cursor-pointer flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img alt="Lunch spread" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="gourmet sandwich and salad catering spread on wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe2y9BcSzb3Y2cHAAGTl86CY0qb2PeHaGtOjWxnsRyohjO4yVjcXl7lm9V-0_Eoms15ugtY_MnPoqp8oXZr3L1tEwK_-eAV1-CVwoAiuaDccn0kjWl00TNMRV5HX6QGggWaqs-8-sYXjZ4FRIO7upzvw0DQJcepIutiUB2khasnvLglv2w3tjDR6TTCNZGhtZ6_zRPNR5vk6a4bXLe8qjLOxM2ApG8BQEl08NQifqUCzMq-na6904PdGYlcBDFXgVkOIBTsFwjQ3A"/>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<span class="text-secondary text-xs font-bold uppercase tracking-wider mb-2">Logistics</span>
+<h3 class="font-headline text-lg font-bold text-on-surface mb-2">Lunch is Served!</h3>
+<p class="font-body text-on-surface-variant text-sm mb-4 line-clamp-2">Head to the outdoor pavilion for a selection of local food trucks and catered options.</p>
+<span class="text-secondary font-semibold text-sm mt-auto">View Menu →</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 lg:hidden rounded-t-[2rem] bg-white/90 dark:bg-zinc-900/90 backdrop-blur-2xl no-border shadow-[0_-8px_24px_rgba(0,0,0,0.05)] shadow-2xl">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3">
+<!-- Active Tab: Home -->
+<a class="flex flex-col items-center justify-center bg-[#0058bc] text-white rounded-2xl px-5 py-2 scale-110 -translate-y-2 transition-all active:scale-90 duration-150 group" href="#">
+<span class="material-symbols-outlined icon-fill mb-1 text-xl group-hover:text-white">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold group-hover:text-white">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150 transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 text-xl group-hover:text-[#0058bc]">explore</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150 transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 text-xl group-hover:text-[#0058bc]">event_note</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150 transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 text-xl group-hover:text-[#0058bc]">military_tech</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150 transition-all group" href="#">
+<span class="material-symbols-outlined mb-1 text-xl group-hover:text-[#0058bc]">emergency</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Safety</span>
+</a>
+</div>
+</nav>
+</body></html>

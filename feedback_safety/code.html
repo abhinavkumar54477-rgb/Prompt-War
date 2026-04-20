@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kinetic Concierge - Safety &amp; Feedback</title>
+<!-- Google Fonts: Plus Jakarta Sans (Headline) & Inter (Body) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from Design System -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#930010",
+                        "surface-dim": "#d9dadb",
+                        "secondary-fixed-dim": "#cfbdff",
+                        "tertiary-container": "#da3433",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-bright": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb3ac",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-container": "#7531ff",
+                        "on-tertiary-fixed": "#410003",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-fixed": "#001a41",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#f8f9fa",
+                        "surface-tint": "#005bc1",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-primary-container": "#fefcff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-container": "#eadfff",
+                        "tertiary": "#b6171e",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#414755",
+                        "inverse-primary": "#adc6ff",
+                        "on-secondary-fixed": "#22005d",
+                        "surface-container": "#edeeef",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5b00df",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#5300cd",
+                        "inverse-on-surface": "#f0f1f2",
+                        "outline": "#717786",
+                        "primary": "#0058bc",
+                        "outline-variant": "#c1c6d7",
+                        "tertiary-fixed": "#ffdad6",
+                        "secondary-fixed": "#e8ddff",
+                        "primary-container": "#0070eb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl font-['Plus_Jakarta_Sans'] font-bold tracking-tight docked full-width top-0 sticky z-50 no-border shadow-sm bg-zinc-50 dark:bg-zinc-800 shadow-[0px_12px_32px_rgba(25,28,29,0.06)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-extrabold text-[#0058bc] dark:text-blue-500 tracking-tighter">Kinetic Concierge</span>
+</div>
+<div class="flex items-center gap-6">
+<!-- Trailing Icons -->
+<div class="flex items-center gap-4 text-zinc-500 dark:text-zinc-400">
+<button class="hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<button class="hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl">emergency_share</span>
+</button>
+<button class="hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform hidden md:block">
+<span class="material-symbols-outlined text-2xl">qr_code_scanner</span>
+</button>
+</div>
+<!-- Profile Avatar -->
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden shadow-sm flex-shrink-0 cursor-pointer active:scale-95 transition-transform">
+<img alt="Attendee profile avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a young woman with natural light and a soft neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRVTY97irQu995lTl9240VTjddus1lwMFh8h4xk8P57cdmg3YT4L0ncfPGAFCZ7JHUQg_uA6HrmVGdoMu31NY3OweZ4s0G9BKmAcslaiTL_NNZ06KwPPA20shUClYxQoT8-J2EGl1WCLSbeFOYX3VVZQ4K4xHeyJRRVW4n2bNl8df4OkHo4YvUdX-vJvIpVU3vMXXfSY7tmOq2cBQENCslhmdfRgbrUUYkBZS1IE4kSJr5Yt6MHsnj0pDdTwBnikHB6EPssz0tg1o"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="bg-[#f3f4f5] dark:bg-zinc-950 font-['Inter'] text-sm font-medium h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col tonal-recession bg-zinc-100 dark:bg-zinc-900 flat no-shadows flex flex-col gap-2 py-8 pr-4 z-40 pt-24 border-r border-transparent">
+<!-- Header / User Info -->
+<div class="px-6 mb-8 mt-4 flex flex-col items-start">
+<div class="w-12 h-12 rounded-full overflow-hidden mb-3 bg-surface-container-lowest shadow-sm">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="close-up portrait of a young woman with natural light and a soft neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrzN9mGrTZU-y2O98-VUyK21-GsgLpRYRFJ4F_9Z86mfsKDvaDyDDV9YV8am1EhJyPefn0TAnfbTD6S3pgKkXB7Xb7S4oK4H9Kd50PG6YW9qX_6IrBicqUJahkSuUR3Qs1pNofKbt0gB7ttlXN-Gy_CTuOrA8rOFXXpriW7-prDMwcrPIRgEEdpAbJFZKIxCAdoAGkJtCxk_9Yczl2Fx5F64tWay5y4kR-2gx6DBDK6lFsmGk9BzATkOZgdYK3kEUE0Wgnb_Jn0z0"/>
+</div>
+<h2 class="font-headline font-bold text-on-surface text-base">Welcome, Attendee</h2>
+<p class="text-xs text-on-surface-variant mt-0.5">Premium Access</p>
+<button class="mt-4 w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-2 px-4 rounded-xl shadow-[0px_4px_12px_rgba(0,88,188,0.2)] font-semibold text-xs active:scale-95 transition-all">
+                Live Highlights
+            </button>
+</div>
+<div class="flex-1 flex flex-col gap-1 overflow-y-auto">
+<a class="flex items-center gap-4 px-6 py-3.5 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">map</span>
+                Event Map
+            </a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+                Schedule
+            </a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+                Leaderboard
+            </a>
+<!-- Active Tab -->
+<a class="flex items-center gap-4 px-6 py-3.5 bg-white dark:bg-zinc-800 text-[#0058bc] dark:text-blue-400 rounded-r-full shadow-sm font-bold hover:translate-x-1 transition-all duration-200 cursor-pointer relative" href="#">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-r-full"></div>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+                Safety &amp; Feedback
+            </a>
+</div>
+<!-- Footer Actions -->
+<div class="mt-auto flex flex-col gap-1 pb-4">
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer text-xs" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full hover:translate-x-1 transition-all duration-200 cursor-pointer text-xs" href="#">
+<span class="material-symbols-outlined text-lg">contact_support</span>
+                Support
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-6 pb-32 lg:pb-12 px-4 md:px-8 max-w-screen-xl mx-auto flex flex-col gap-8 min-h-[calc(100vh-80px)]">
+<!-- Header Area -->
+<header class="flex flex-col gap-2 pt-4">
+<h1 class="font-headline text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight leading-none">Safety &amp; Support</h1>
+<p class="text-on-surface-variant text-base md:text-lg max-w-2xl mt-2">Your well-being is our priority. Access immediate help or share your thoughts to improve the event experience.</p>
+</header>
+<!-- Emergency Action Card (Tertiary Color - High Contrast) -->
+<section class="w-full">
+<div class="bg-tertiary-container rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-[0px_16px_32px_rgba(218,52,51,0.15)] flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Abstract BG shape for texture without lines -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-tertiary rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-3 max-w-xl">
+<div class="flex items-center gap-3 text-on-tertiary-container">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h2 class="font-headline text-2xl font-bold">Immediate Assistance</h2>
+</div>
+<p class="text-on-tertiary-container/90 text-sm md:text-base font-medium">
+                        If you are experiencing a medical emergency or feel unsafe, dispatch our rapid response team immediately. Your location will be shared securely.
+                    </p>
+</div>
+<button class="relative z-10 w-full md:w-auto flex-shrink-0 bg-tertiary text-on-tertiary font-headline font-bold text-lg px-8 py-5 rounded-2xl shadow-[0px_8px_24px_rgba(182,23,30,0.3)] hover:scale-[1.02] active:scale-95 transition-all duration-200 flex items-center justify-center gap-3 whitespace-nowrap group">
+<span class="material-symbols-outlined group-hover:animate-pulse">emergency</span>
+                    EMERGENCY HELP
+                </button>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Feedback (Bento Grid Main Cell) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-3xl p-6 md:p-8 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] flex flex-col gap-6 h-full">
+<div class="flex items-start justify-between gap-4">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Rate Your Recent Session</h3>
+<p class="text-sm text-on-surface-variant mt-1">Keynote: Future of Digital Interaction</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">rate_review</span>
+</div>
+</div>
+<!-- 5 Star Rating -->
+<div class="flex gap-2 items-center justify-center py-4">
+<button class="text-surface-variant hover:text-secondary-container transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="text-surface-variant hover:text-secondary-container transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="text-surface-variant hover:text-secondary-container transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="text-surface-variant hover:text-secondary-container transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="text-surface-variant hover:text-secondary-container transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined text-4xl">star</span>
+</button>
+</div>
+<!-- Comment Box (Ghost Border pattern) -->
+<div class="flex flex-col gap-2 mt-2">
+<label class="text-sm font-semibold text-on-surface" for="feedback">Additional Comments (Optional)</label>
+<div class="relative">
+<textarea class="w-full bg-surface-container-highest rounded-2xl p-4 text-sm text-on-surface placeholder:text-on-surface-variant/60 outline-none transition-all duration-200 border-none ring-0 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest resize-none" id="feedback" placeholder="What stood out to you? Any areas for improvement?" rows="4"></textarea>
+</div>
+</div>
+<button class="mt-auto w-full md:w-auto self-end bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold px-6 py-3 rounded-xl shadow-sm hover:shadow-md active:scale-95 transition-all flex items-center justify-center gap-2">
+                        Submit Feedback
+                        <span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Quick Links (Stacked High-Touch Cards) -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<h3 class="font-headline text-lg font-bold text-on-surface mb-2 px-1">Quick Resources</h3>
+<!-- Quick Link 1 -->
+<a class="group bg-surface-container-lowest rounded-2xl p-5 shadow-[0px_4px_16px_rgba(25,28,29,0.03)] hover:shadow-[0px_12px_32px_rgba(25,28,29,0.06)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-5 cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined">help</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-semibold text-on-surface text-base">Event FAQs</span>
+<span class="text-xs text-on-surface-variant">Answers to common questions</span>
+</div>
+<span class="material-symbols-outlined text-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<!-- Quick Link 2 -->
+<a class="group bg-surface-container-lowest rounded-2xl p-5 shadow-[0px_4px_16px_rgba(25,28,29,0.03)] hover:shadow-[0px_12px_32px_rgba(25,28,29,0.06)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-5 cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined">medical_services</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-semibold text-on-surface text-base">First Aid Locations</span>
+<span class="text-xs text-on-surface-variant">Interactive map of medical tents</span>
+</div>
+<span class="material-symbols-outlined text-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<!-- Quick Link 3 -->
+<a class="group bg-surface-container-lowest rounded-2xl p-5 shadow-[0px_4px_16px_rgba(25,28,29,0.03)] hover:shadow-[0px_12px_32px_rgba(25,28,29,0.06)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-5 cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-semibold text-on-surface text-base">Contact Organizer</span>
+<span class="text-xs text-on-surface-variant">Lost &amp; found, general inquiries</span>
+</div>
+<span class="material-symbols-outlined text-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="bg-white/90 dark:bg-zinc-900/90 backdrop-blur-2xl font-['Inter'] text-[10px] uppercase tracking-widest font-bold fixed bottom-0 w-full z-50 lg:hidden rounded-t-[2rem] no-border shadow-[0_-8px_24px_rgba(0,0,0,0.05)] shadow-2xl fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+            Home
+        </a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+            Map
+        </a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">event_note</span>
+            Schedule
+        </a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">military_tech</span>
+            Rank
+        </a>
+<!-- Active Tab -->
+<a class="flex flex-col items-center justify-center bg-[#0058bc] text-white rounded-2xl px-5 py-2 scale-110 -translate-y-2 transition-all hover:text-white" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">emergency</span>
+            Safety
+        </a>
+</nav>
+</body></html>

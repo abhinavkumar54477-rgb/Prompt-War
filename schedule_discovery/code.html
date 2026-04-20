@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Personalized Schedule &amp; Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#930010",
+                        "surface-dim": "#d9dadb",
+                        "secondary-fixed-dim": "#cfbdff",
+                        "tertiary-container": "#da3433",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-bright": "#f8f9fa",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb3ac",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-container": "#7531ff",
+                        "on-tertiary-fixed": "#410003",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-fixed": "#001a41",
+                        "on-tertiary-container": "#fffbff",
+                        "background": "#f8f9fa",
+                        "surface-tint": "#005bc1",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "on-primary-container": "#fefcff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-container": "#eadfff",
+                        "tertiary": "#b6171e",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#414755",
+                        "inverse-primary": "#adc6ff",
+                        "on-secondary-fixed": "#22005d",
+                        "surface-container": "#edeeef",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5b00df",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-secondary-fixed-variant": "#5300cd",
+                        "inverse-on-surface": "#f0f1f2",
+                        "outline": "#717786",
+                        "primary": "#0058bc",
+                        "outline-variant": "#c1c6d7",
+                        "tertiary-fixed": "#ffdad6",
+                        "secondary-fixed": "#e8ddff",
+                        "primary-container": "#0070eb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex">
+<!-- SideNavBar (Hidden on Mobile) -->
+<nav class="bg-[#f3f4f5] dark:bg-zinc-950 h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col tonal-recession bg-zinc-100 dark:bg-zinc-900 flat no-shadows flex flex-col gap-2 py-8 pr-4 z-40">
+<div class="px-6 mb-8 flex flex-col gap-2">
+<img alt="User profile" class="w-12 h-12 rounded-full object-cover mb-2" data-alt="Portrait of a young professional woman smiling softly, wearing a light colored blazer against a bright background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQEML4nrfvZz2XOuFqRMBPP1nXNhYa_wKFh768QYZ7QJO9AvEwLQ91U0KoknnEeF4tJfH8e8BLFXpB2PxxihhrZcywwlK21uxMEXHEWpSjpuF1u0vrE6yHZTKwclNN-10l3eeQ8YluM6jy7ZatV-XHtJ02QlktCcY2rwZEfUf3NXJM3vk7mJz2X_n_4JUr1tOEELXukvSfka982lpCKEyV5BT_ZEC1r_pviEAZyVPTaO3-NUMx3EYl-K3L12yodlkVqL3pD2Hq4h8"/>
+<h2 class="font-headline font-bold text-on-surface">Welcome, Attendee</h2>
+<p class="font-body text-xs text-primary font-medium">Premium Access</p>
+</div>
+<button class="mx-6 mb-8 bg-gradient-to-r from-primary to-primary-container text-on-primary py-3 px-4 rounded-xl font-headline font-bold shadow-[0px_12px_32px_rgba(25,28,29,0.06)] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">play_circle</span>
+            Live Highlights
+        </button>
+<div class="flex flex-col gap-1 flex-grow">
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all flex items-center gap-3 px-6 py-3" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all flex items-center gap-3 px-6 py-3" href="#">
+<span class="material-symbols-outlined">map</span>
+                Event Map
+            </a>
+<a class="bg-white dark:bg-zinc-800 text-[#0058bc] dark:text-blue-400 rounded-r-full shadow-sm font-bold font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all flex items-center gap-3 px-6 py-3" href="#">
+<span class="material-symbols-outlined fill">calendar_today</span>
+                Schedule
+            </a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all flex items-center gap-3 px-6 py-3" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+                Leaderboard
+            </a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all flex items-center gap-3 px-6 py-3" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
+                Safety &amp; Feedback
+            </a>
+</div>
+<div class="flex flex-col gap-1 mt-auto pt-4 border-t border-surface-variant/20">
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all flex items-center gap-3 px-6 py-3" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-r-full font-['Inter'] text-sm font-medium hover:translate-x-1 transition-all duration-200 cursor-pointer transition-all flex items-center gap-3 px-6 py-3" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+                Support
+            </a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="flex-1 lg:ml-64 min-h-screen pb-24 lg:pb-8 flex flex-col relative">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl docked full-width top-0 sticky z-50 no-border shadow-sm bg-zinc-50 dark:bg-zinc-800 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<h1 class="text-2xl font-extrabold text-[#0058bc] dark:text-blue-500 tracking-tighter font-['Plus_Jakarta_Sans'] font-bold tracking-tight">Kinetic Concierge</h1>
+</div>
+<div class="flex items-center gap-4">
+<!-- Search Bar Placeholder for "on_right" logic -->
+<div class="hidden md:flex items-center bg-surface-container-high rounded-full px-4 py-2 focus-within:bg-surface-container-lowest focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-body outline-none w-48 text-on-surface placeholder:text-on-surface-variant" placeholder="Search schedule..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-zinc-500 dark:text-zinc-400 font-medium hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-tertiary font-medium hover:text-tertiary-container transition-colors duration-300 active:scale-95 transition-transform rounded-full hover:bg-error-container/50">
+<span class="material-symbols-outlined">emergency_share</span>
+</button>
+<button class="p-2 text-zinc-500 dark:text-zinc-400 font-medium hover:text-[#0058bc] dark:hover:text-blue-300 transition-colors duration-300 active:scale-95 transition-transform rounded-full hover:bg-surface-container-high">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</button>
+</div>
+<img alt="Attendee profile avatar" class="w-10 h-10 rounded-full object-cover border-2 border-surface cursor-pointer hidden md:block" data-alt="Portrait of a young professional woman smiling softly, wearing a light colored blazer against a bright background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeUyrlwdVYl5kaTE3I19eY7vbs_O12yuZzaXL2WUlmBQ0XaNfaXIgS55xfOWAkhETAiTfXQl79e2NCKcemXOe19S-HPrLb2md_ERy2pSCtnN8Uvj4Syo4GaZoXNTy38iIdRgs6SR3j7XWjmoC0Pa31t20tLVmwToCxTqgEytnDYS5Sp1sAi8OoHXOB4Vn6cDRKoLvSIbj-FzI1C-xJ9ZTPpTMSh0A441pb2Y7Yw5ooIvWAEmJT4L0QKLUEY-UxfLF05MkmkFIIyeQ"/>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-6 max-w-screen-2xl mx-auto w-full flex-grow flex flex-col gap-8">
+<!-- Page Header & Itinerary Toggle -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mt-4">
+<div class="max-w-2xl">
+<h2 class="font-headline text-4xl lg:text-5xl font-extrabold text-on-surface tracking-tight leading-tight mb-2">Schedule &amp; Discovery</h2>
+<p class="font-body text-on-surface-variant text-lg">Curate your journey. Discover insights.</p>
+</div>
+<!-- Custom Tab Toggle -->
+<div class="bg-surface-container-high p-1 rounded-xl flex shadow-sm">
+<button class="px-6 py-2.5 rounded-lg bg-surface-container-lowest text-primary font-headline font-bold shadow-sm transition-all text-sm">
+                        All Sessions
+                    </button>
+<button class="px-6 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface font-headline font-medium transition-all text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">event_available</span>
+                        My Itinerary
+                    </button>
+</div>
+</div>
+<!-- Content Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+<!-- Main Schedule Timeline (Left 8 cols) -->
+<div class="xl:col-span-8 flex flex-col gap-8">
+<!-- Filters Strip -->
+<div class="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<span class="font-headline text-sm font-bold text-on-surface-variant whitespace-nowrap mr-2">Filters:</span>
+<button class="bg-secondary-fixed text-on-secondary-fixed-variant px-4 py-1.5 rounded-full font-body text-sm font-semibold flex items-center gap-1 whitespace-nowrap shadow-[0px_4px_12px_rgba(25,28,29,0.04)]">
+<span class="material-symbols-outlined text-sm fill">smart_toy</span> AI
+                        </button>
+<button class="bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant px-4 py-1.5 rounded-full font-body text-sm font-medium flex items-center gap-1 whitespace-nowrap transition-colors">
+<span class="material-symbols-outlined text-sm">favorite</span> Health
+                        </button>
+<button class="bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant px-4 py-1.5 rounded-full font-body text-sm font-medium flex items-center gap-1 whitespace-nowrap transition-colors">
+<span class="material-symbols-outlined text-sm">sports_esports</span> Gaming
+                        </button>
+<button class="bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant px-4 py-1.5 rounded-full font-body text-sm font-medium flex items-center gap-1 whitespace-nowrap transition-colors">
+<span class="material-symbols-outlined text-sm">tune</span> More
+                        </button>
+</div>
+<!-- Timeline Content -->
+<div class="flex flex-col gap-10">
+<!-- Time Block: 09:00 AM -->
+<div class="relative">
+<div class="flex items-center gap-4 mb-4">
+<h3 class="font-headline text-2xl font-extrabold text-on-surface">09:00 AM</h3>
+<div class="h-px bg-surface-variant flex-grow mt-2"></div>
+</div>
+<div class="flex flex-col gap-4 pl-4 md:pl-8 border-l-2 border-surface-variant/30">
+<!-- Session Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_12px_32px_rgba(25,28,29,0.06)] group relative overflow-hidden transition-all hover:-translate-y-1">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+<div class="flex flex-col md:flex-row justify-between gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Keynote</span>
+<span class="bg-surface-container-high text-on-surface-variant text-xs font-bold px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">location_on</span> Hall A</span>
+</div>
+<h4 class="font-headline text-xl font-bold text-on-surface mb-2 leading-tight">The Future of Generative Ecosystems</h4>
+<p class="font-body text-on-surface-variant text-sm mb-4 line-clamp-2">An in-depth look at how interconnected AI models will shape the next decade of digital infrastructure and creative workflows.</p>
+<div class="flex items-center gap-3 mt-auto">
+<img alt="Speaker" class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Professional headshot of a middle-aged man in a tailored suit smiling confidently" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-5qP3bG8M2KUJbxnB859eQ-S9eCdH6njRpl6ecS2ERspyCa6K25vJK_Q_N4N-KsZcDjYKmYSEA-uZUPGsv1YZheqTk-_8BUMQk4PzTOe-vTmXz6-mgDIn3PjYbzSDmTPIhxTIfdjjJ8zpTB1v6xiaAWBB1-RZ5nsHXyd3-0q0_94AbiOTeo_hxIH7tYSHCzLOIk1B-rqIOz7LGsG3GjWqOTn2EiEDdxbmLuVD1kNAKjkCjrhYkJhpLW-A28Vte0vG8p5lbHOZ58"/>
+<div>
+<p class="font-headline text-sm font-bold text-on-surface">Dr. Aris Thorne</p>
+<p class="font-body text-xs text-on-surface-variant">Chief Scientist, Nexus AI</p>
+</div>
+</div>
+</div>
+<div class="flex flex-row md:flex-col items-center justify-between md:justify-center border-t md:border-t-0 md:border-l border-surface-variant/40 pt-4 md:pt-0 md:pl-6 gap-4">
+<div class="text-left md:text-center">
+<p class="font-headline font-bold text-on-surface">60 Min</p>
+<p class="font-body text-xs text-on-surface-variant">Duration</p>
+</div>
+<button class="bg-surface text-primary border border-primary/20 hover:bg-primary-fixed/50 px-4 py-2 rounded-lg font-headline text-sm font-bold transition-colors flex items-center gap-2 shadow-[0px_4px_12px_rgba(25,28,29,0.03)]">
+<span class="material-symbols-outlined text-sm">add</span> Add
+                                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Discovery Sidebar (Right 4 cols) -->
+<div class="xl:col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-low rounded-xl p-6 shadow-sm border border-surface-variant/20">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-xl font-bold text-on-surface">Recommended for You</h3>
+<span class="material-symbols-outlined text-secondary">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Discovery Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-4 shadow-[0px_8px_24px_rgba(25,28,29,0.04)] cursor-pointer hover:bg-surface-container-highest transition-colors flex gap-4 items-center">
+<div class="w-16 h-16 rounded-md overflow-hidden flex-shrink-0 relative">
+<img alt="Gaming session" class="w-full h-full object-cover" data-alt="Retro arcade machine screens glowing in a dark room with neon pink and blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC58SbMJtLVJbXdVxEePXoFwWY0hjkVlToXMfx_LXKFfSSlrAFWrqePCCfY6QREiFoeFzZnRWPIxIeeIPku1yA3WzTqSIffVdQn12-JuDvp6mFHJ6X9ySsXiwbGAod7-K27GkUIL8TJdgk6DVVk7Hnp08HBnfCWfCYH7S_81bVRkB_qyEDLLg1X315WAnrte5YC0NfTZfm-ohZ3e-EDsq3AnLqjD8WAjjW7VUTo38eHY76Z6jEm9oaAy55GJtT1Fnmca0ufPcuAoh8"/>
+<div class="absolute inset-0 bg-secondary/20 mix-blend-overlay"></div>
+</div>
+<div class="flex-1">
+<p class="font-body text-xs text-secondary font-bold mb-1">Based on 'Gaming'</p>
+<h4 class="font-headline text-sm font-bold text-on-surface leading-snug">Indie Dev Post-Mortem</h4>
+<p class="font-body text-xs text-on-surface-variant mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">schedule</span> 11:30 AM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="bg-white/90 dark:bg-zinc-900/90 backdrop-blur-2xl fixed bottom-0 w-full z-50 lg:hidden rounded-t-[2rem] no-border shadow-[0_-8px_24px_rgba(0,0,0,0.05)] shadow-2xl fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#0058bc] text-white rounded-2xl px-5 py-2 scale-110 -translate-y-2 transition-all hover:text-[#0058bc] active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined fill mb-1">event_note</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">military_tech</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 px-4 py-2 hover:text-[#0058bc] active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">emergency</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-bold">Safety</span>
+</a>
+</nav>
+</body></html>
