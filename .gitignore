@@ -26,7 +26,6 @@ dist-ssr
 # Vite / Build artifacts
 .vite
 manifest.json
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
